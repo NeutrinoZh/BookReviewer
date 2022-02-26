@@ -1,0 +1,18 @@
+@import './colors.scss';
+@import './imports.scss';
+
+@import './Components/App/App.scss';
+@import './Components/Navigation/Navigation.scss';
+@import './Components/Button/Button.scss';
+@import './Components/Input/Input.scss';
+@import './Components/Comment/Comment.scss';
+@import './Components/Input/TextArea.scss';
+
+@import './Pages/Home/Home.scss';
+@import './Pages/AboutUs/AboutUs.scss';
+@import './Pages/Profile/Profile.scss';
+@import './Pages/Auth/Auth.scss';
+@import './Pages/Errors/Page404.scss';
+@import './Pages/BookDetail/BookDetail.scss';
+@import './Pages/AddNewBook/AddNewBook.scss';
+@import './Pages/EditProfile/EditProfile.scss';

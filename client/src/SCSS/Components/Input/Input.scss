@@ -1,0 +1,54 @@
+.input-div {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    
+    margin-top: 1em;
+    width: 100%;
+
+    .input-label {
+        line-height: 200%;
+        margin-left: 3%;
+
+        &::after {
+            content: ':';
+        }
+    }
+
+    input {
+        margin-right: 3%;
+
+        width: 50%;
+        height: 25px;
+
+        border: solid 3px $main-color;
+        border-radius: 5px;
+
+        font-family: 'Rowdies', cursive;
+        font-size: 17px;
+
+        outline: none;
+
+        transition: border-radius 1s ease-out;
+
+        &:focus, &:active {
+            border: dashed 3px $main-dark-color;
+            border-radius: 10px;
+        }
+    }
+
+    input[type=file] {
+        display: none;
+    }
+
+    .file-upload {
+        margin-right: 25%;
+        
+        color: $main-color;
+
+        &:hover {
+            color: $main-dark-color;
+        }
+    }
+}

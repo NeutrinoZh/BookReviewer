@@ -1,0 +1,23 @@
+.edit-profile-form {
+    width: 70em;
+
+    align-self: center;
+    margin-top: 3em;
+    margin-bottom: 1%;
+
+    border: 3px solid $main-color;
+   
+    h1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    textarea {
+        min-width: 80%;
+    }
+
+    button {
+        margin-top: 1em;
+        width: 100%;
+    }
+}

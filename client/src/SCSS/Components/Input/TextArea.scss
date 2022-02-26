@@ -1,0 +1,36 @@
+.textarea-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 1em;
+
+    label {
+        line-height: 200%;
+        margin-left: 3%;
+
+        &::after {
+            content: ':';
+        }
+    }
+
+    textarea {
+        min-width: 88%;
+        height: 30em;
+
+        margin-right: 3%;
+
+        border: solid 3px $main-color;
+        border-radius: 5px;
+        
+        font-family: 'Rowdies', cursive;
+        font-size: 17px;
+
+        outline: none;
+
+        &:focus, &:active {
+            border: dashed 3px $main-dark-color;
+            border-radius: 5px;
+        }
+    }
+}

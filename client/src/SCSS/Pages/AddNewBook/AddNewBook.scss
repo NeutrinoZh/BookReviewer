@@ -1,0 +1,31 @@
+.add-new-book-form {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+
+    margin-top: 4%;
+    margin-bottom: 1%;
+
+    width: 80%;
+
+    border: 3px solid $main-color;
+
+    h1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    input {
+        width: 100%;
+        margin-left: 1%;
+    }
+
+    textarea {
+        width: 80%;
+        align-self: center;
+    }
+
+    button {
+        margin-top: 1em;
+    }
+}

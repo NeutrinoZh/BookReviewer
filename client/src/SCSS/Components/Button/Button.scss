@@ -1,0 +1,12 @@
+button {
+    border: 0px;
+    background-color: $main-color;
+
+    font-family: 'Rowdies', cursive;
+    font-size: 17px;
+    color: $white;
+}
+
+button:hover {
+    background-color: $main-dark-color;
+}
