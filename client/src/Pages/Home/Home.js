@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react"
 import Card from "../../Components/Card/Card"
-import { addBook } from "../../Redux/actionMaker"
 import ReduxContext from "../../Redux/reduxContext"
 
 function Home() {

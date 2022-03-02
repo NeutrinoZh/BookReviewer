@@ -5,12 +5,22 @@ import Input from '../../Components/Input/Input'
 import { useRef } from 'react'
 
 import { Link } from 'react-router-dom'
+import { signup } from '../../Services/auth'
 
 function SignUp() {
     const inputName = useRef(null)
     const inputEmail = useRef(null)
     const inputPassword = useRef(null)
     const inputRepassword = useRef(null)
+
+    function submit() {
+        signup({
+            name: inputName.current.value,
+            email: inputEmail.current.value,
+            password: inputPassword.current.value,
+            repassword: inputRepassword.current.value
+        })
+    }
 
     return (
         <div className="auth-container">
@@ -41,7 +51,7 @@ function SignUp() {
             />
 
             <div className='auth-buttons'>
-                <button id='btn-signup'>{loc.auth.signup}</button>
+                <button id='btn-signup' onClick={submit}>{loc.auth.signup}</button>
                 <Link to={Routes.signin}>
                     <button id='btn-signin'>{loc.auth.signin}</button>
                 </Link>
