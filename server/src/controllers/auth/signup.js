@@ -13,8 +13,6 @@ import User from '../../models/user.js'
 */
 
 const signup = (req, res, next) => {
-    console.log(req.body)
-
     let {
         name, email, password, repassword
     } = req.body
@@ -37,6 +35,12 @@ const signup = (req, res, next) => {
             name: name,
             email: email,
             password: password,
+            aboutMe: 'about me',
+            followers: 0,
+            num_books: 0,
+            num_following: 0,
+            num_comments: [],
+            num_favorite: 0,
         })
 
         user.save((err) => {

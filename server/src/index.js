@@ -7,6 +7,9 @@ import config from './config.js'
 import dbStart from './db.js'
 
 import authRouter from './routers/auth.js'
+import bookRouter from './routers/book.js'
+
+import multiparty from 'multiparty'
 
 // Connect to database (Mongoose)
 const db = dbStart()
@@ -40,8 +43,11 @@ app.use((req, res, next) => {
         const form = new multiparty.Form()
         form.parse(req, (err, fields, files) => {
             if (!err) {
-                req.body = fields
+                for (let key in fields)
+                    req.body[key] = fields[key][0]
                 req.files = files
+            } else {
+                console.error(err)
             }
     
             next()
@@ -53,6 +59,7 @@ app.use((req, res, next) => {
 
 // Connect routers
 app.use(authRouter)
+app.use(bookRouter)
 
 // Run
 app.listen(config.port)

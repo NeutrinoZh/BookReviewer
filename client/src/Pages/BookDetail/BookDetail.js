@@ -31,20 +31,20 @@ function BookDetail() {
                 </div>
             </div>
 
-            <p className='book-detail-num-favorite'>31 {loc.book_detail.num_favorite}</p>
+            <p className='book-detail-num-favorite'>31 {loc._book_detail.num_favorite}</p>
 
             <div className="book-detail-buttons">
-                <button>{loc.book_detail.remove}</button>
+                <button>{loc._book_detail.remove}</button>
                 <Link className='a-btn' to={Routes.edit_book.replace(':book', '0')}>
-                    <button>{loc.book_detail.edit}</button>
+                    <button>{loc._book_detail.edit}</button>
                 </Link>
-                <button>{loc.book_detail.favorite}</button>
+                <button>{loc._book_detail.favorite}</button>
             </div>
 
             <div className="book-detail-input">
                 <Input/>
 
-                <button>{loc.book_detail.send}</button>
+                <button>{loc._book_detail.send}</button>
             </div>
 
             <div className='book-detail-comments'>

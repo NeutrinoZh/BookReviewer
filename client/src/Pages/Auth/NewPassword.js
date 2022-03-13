@@ -3,54 +3,37 @@ import Routes from '../../Routes/Routes'
 import Input from '../../Components/Input/Input'
 
 import { useRef, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { new_password } from '../../Services/auth'
 
-import { Link, useNavigate } from 'react-router-dom'
-import { signup } from '../../Services/auth'
-
-function SignUp() {
-    const inputName = useRef(null)
-    const inputEmail = useRef(null)
+function NewPassword() {
     const inputPassword = useRef(null)
     const inputRepassword = useRef(null)
+
+    const { id } = useParams()
 
     const navigate = useNavigate()
     const [ error, setErrorState ] = useState('')
 
     function submit() {
-        signup({
-            name: inputName.current.value,
-            email: inputEmail.current.value,
-            password: inputPassword.current.value,
-            repassword: inputRepassword.current.value
-        }, () => {
+        new_password(inputPassword.current.value, inputRepassword.current.value, id, () => {
             navigate(Routes.signin)
         }, setErrorState)
     }
 
     return (
         <div className="auth-container">
-            <h1>{loc._auth.signup_title}</h1>
-        
+            <h1>{loc._auth.reset_title}</h1>
+
             <p className='error'>{loc.get(error, 'auth')}</p>
 
-            <Input 
-                name='name'
-                _ref={inputName}
-                type='name'
-                label={loc._auth.name}
-            />
-            <Input 
-                name='email'
-                _ref={inputEmail}
-                type='email'
-                label={loc._auth.email}
-            />
             <Input 
                 name='password'
                 _ref={inputPassword}
                 type='password'
-                label={loc._auth.password}
+                label={loc._auth.new_password}
             />
+
             <Input 
                 name='repassword'
                 _ref={inputRepassword}
@@ -59,13 +42,13 @@ function SignUp() {
             />
 
             <div className='auth-buttons'>
-                <button id='btn-signup' onClick={submit}>{loc._auth.signup}</button>
+                <button id='btn-reset' onClick={submit}>{loc._auth.reset_title}</button>
                 <Link to={Routes.signin}>
-                    <button id='btn-signin'>{loc._auth.signin}</button>
+                    <button id='btn-cancel'>{loc._auth.cancel}</button>
                 </Link>
             </div>
         </div>
     )
 }
 
-export default SignUp
+export default NewPassword

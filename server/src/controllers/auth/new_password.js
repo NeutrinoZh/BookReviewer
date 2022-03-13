@@ -1,4 +1,5 @@
 import ResetPassword from '../../models/reset_password.js'
+import User from '../../models/user.js'
 import { password_hash } from './untils.js'
 
 /*

@@ -1,9 +1,7 @@
 import actions from "./actions";
-import { v4 } from 'uuid'
 
 export const addBook = (book) => ({
     type: actions.ADD_BOOK,
-    id: v4(),
     ...book
 })
 

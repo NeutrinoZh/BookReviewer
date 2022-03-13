@@ -11,7 +11,9 @@ const config = {
         change_name: '/change-name/',
         change_email: '/change-email/',
         change_avatar: '/change-avatar/',
-        get_user: '/get-user/'
+        get_user: '/get-user/',
+
+        add_book: '/add-book/'
     },
     salt: 'c01d192d',
     maxAgeToken: 360000, // One hour

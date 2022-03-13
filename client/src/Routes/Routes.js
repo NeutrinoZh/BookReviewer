@@ -12,7 +12,7 @@ const Routes = ({
     signup: '/signup/',
     logout: '/logout/',
     reset_password: '/reset-password/',
-    new_password: '/new-password/',
+    new_password: '/reset-link/:id',
 
     page404: '/*',
 })

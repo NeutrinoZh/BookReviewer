@@ -1,56 +1,53 @@
-import { useRef, useContext } from "react"
+import { useRef, useContext, useState } from "react"
 import Input from "../../Components/Input/Input"
 import TextArea from "../../Components/Input/TextArea"
 import { loc } from "../../Settings/localization"
 
-import { addBook } from "../../Redux/actionMaker"
-import ReduxContext from "../../Redux/reduxContext"
 import { useNavigate } from "react-router-dom"
 import Routes from "../../Routes/Routes"
+import { addBookService } from "../../Services/book"
 
 function AddNewBook() {
-    const store = useContext(ReduxContext)
+    const [ error, setErrorState ] = useState('')
 
     const title = useRef(null)
     const image = useRef(null)
     const text = useRef(null)
 
     const navigate = useNavigate()
-
+ 
     function submit() {
-        store.dispatch( addBook({
-            title: title.current.value,
-            text: text.current.value,
-            image: image.current.value
-        }) )
-
-        navigate(Routes.home)
+        addBookService(title.current.value, image.current.files[0], text.current.value, () => {
+            navigate(Routes.home)
+        }, setErrorState)
     }
 
     return (
         <div className="add-new-book-form">
-            <h1>{loc.add_new_book_form.title}</h1>
+            <h1>{loc._add_new_book_form.title}</h1>
+
+            <p className="error">{loc.get(error, 'add_new_book_form')}</p>
 
             <Input
                 name='title'
                 _ref={title}
-                label={loc.add_new_book_form.title_book}
+                label={loc._add_new_book_form.title_book}
             />
 
             <Input
                 type='file'
                 name='image'
                 _ref={image}
-                label={loc.add_new_book_form.image}
+                label={loc._add_new_book_form.image}
             />
 
             <TextArea
                 name='text'
                 _ref={text}
-                label={loc.add_new_book_form.text}                
+                label={loc._add_new_book_form.text}                
             />
 
-            <button onClick={submit}>{loc.add_new_book_form.add}</button>
+            <button onClick={submit}>{loc._add_new_book_form.add}</button>
         </div>
     )
 }

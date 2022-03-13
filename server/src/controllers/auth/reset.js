@@ -1,7 +1,9 @@
+import fs from 'fs'
 import nodemailer from 'nodemailer'
 import { v4 as uuidv4 } from 'uuid'
 
 import User from '../../models/user.js'
+import ResetPassword from '../../models/reset_password.js'
 
 import config from '../../config.js'
 
@@ -22,7 +24,7 @@ const reset = (() => {
         service: 'gmail',
         auth: {
           user: 'neutrinozhc@gmail.com',
-          pass: '', //! There should be a password here
+          pass: 'dlrowerutuf', //! There should be a password here
         }
     })
 

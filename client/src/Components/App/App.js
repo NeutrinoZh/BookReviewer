@@ -1,25 +1,14 @@
+import { Provider } from 'react-redux';
 import Routers from '../../Routes/Routers';
-import ReduxContext from '../../Redux/reduxContext';
-import ReduxStore from '../../Redux/store';
-
-import {
-    useEffect,
-    useState
-} from 'react';
+import store from '../../Redux/store';
 
 function App() {
-    const [ store, setStoreState ] = useState(ReduxStore)
-
-    useEffect(() => {
-        store.subscribe(() => setStoreState(store))
-    }, [])
-
-    return (
-        <ReduxContext.Provider value={store}>
+    return (   
+        <Provider store={store}>
             <main>
                 <Routers/>        
             </main>
-        </ReduxContext.Provider>
+        </Provider> 
     );
 }
 

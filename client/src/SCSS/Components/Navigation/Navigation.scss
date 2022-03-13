@@ -12,6 +12,7 @@
         display: block;
         padding: 1em;
         color: $white;
+        user-select: none;
 
         &:hover {
             background: $main-dark-color;

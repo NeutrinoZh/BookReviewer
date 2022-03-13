@@ -7,7 +7,7 @@ const localization = {
         about: 'Про сторінку',
         profile: 'Профіль',
 
-        auth: {
+        _auth: {
             signin_title: 'Вхід',
             signin: 'Увійти',
             signup_title: 'Реєстрація',
@@ -61,7 +61,7 @@ const localization = {
             favorites: 'Улюбленних'
         },
 
-        add_new_book_form: {
+        _add_new_book_form: {
             title: 'Додавання нової книги',
             title_book: 'Назва',
             text: 'Текст',
@@ -69,7 +69,7 @@ const localization = {
             image: 'Обкладинка'
         },
 
-        edit_profile_form: {
+        _edit_profile_form: {
             title: 'Редагування профілю',
             name: "Ім'я",
             avatar: 'Аватарка',
@@ -77,7 +77,7 @@ const localization = {
             confirm: 'Підтвердити',
         },
 
-        book_detail: {
+        _book_detail: {
             remove: 'Видалити',
             favorite: 'Улюблене',
             edit: 'Редагування',
@@ -85,9 +85,16 @@ const localization = {
             num_favorite: 'додали в улюблене'
         },
 
-        page404: {
+        _page404: {
             title: 'Сторінка не знайдена',
             text: 'Можливо в URL адресі міститься помилка, перевірте і спробуйте знову.'
+        },
+
+        get: (key, section=null) => {
+            if (section)
+                return localization.ua['_' + section][key] ? localization.ua['_' + section][key] : key
+            else
+               return localization.ua[key] ? localization.ua[key] : key
         }
     }
 }

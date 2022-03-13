@@ -54,10 +54,12 @@ const signin = (req, res, next) => {
                     res.json({
                         name: found_user.name,
                         email: found_user.email,
-                        interests: found_user.interests,
-                        job: found_user.job,
-                        university: found_user.university,
-                        what_looking: found_user.what_looking,
+                        aboutMe: found_user.aboutMe,
+                        followers: found_user.followers,
+                        num_books: found_user.num_books,
+                        num_following: found_user.num_following,
+                        num_comments: found_user.num_comments,
+                        num_favorite: found_user.num_favorite,
                         token: found_user.token,
                         avatar: found_user.avatar
                     })

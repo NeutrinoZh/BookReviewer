@@ -52,12 +52,12 @@ export const user = (state={}, action) => {
                 num_books: action.num_books,
                 num_following: action.num_following,
                 num_comments: action.num_comments,
-                num_favorite: action.num_favorite
+                num_favorite: action.num_favorite,
+                token: action.token,
+                avatar: action.avatar
             }
-        case action.LOGOUT: 
-            return {
-                name: 'Anonymous'
-            }
+        case actions.LOGOUT: 
+            return {}
         default:
             return state
     }

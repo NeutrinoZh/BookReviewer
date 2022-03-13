@@ -21,7 +21,7 @@ const reset_link = (req, res, next) => {
 
         found_link.save((err) => {
             if (err) return next(err)
-            res.redirect(`http://localhost:3000/auth/reset-link/${req.params.id}`)
+            res.redirect(`http://localhost:3000/reset-link/${req.params.id}`)
         })
     })
 }

@@ -1,10 +1,7 @@
-import { useContext, useEffect } from "react"
 import Card from "../../Components/Card/Card"
-import ReduxContext from "../../Redux/reduxContext"
+import store from "../../Redux/store"
 
 function Home() {
-    const store = useContext(ReduxContext)
-
     return (
         <div className="card-containter">
             {
