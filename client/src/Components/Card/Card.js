@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import Routes from "../../Routes/Routes"
 
-const Card = ({ title, text, image }) => (
+const Card = ({ title, text, image, id }) => (
     <div className="card">
         <img src={image}></img>
         <div className="card-info">
@@ -9,7 +9,7 @@ const Card = ({ title, text, image }) => (
             <p>
                 {text} 
             </p>
-            <Link to={Routes.detailBook}>
+            <Link to={`${Routes.detailBook}${id}`}>
                 <button>Подробнее</button>
             </Link>
         </div>

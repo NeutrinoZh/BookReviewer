@@ -1,5 +1,6 @@
 const config = {
     port: process.env.PORT || 3033,
+    host: 'http://localhost:3033/',
     mongodb: "mongodb://localhost:27017/",
     urls: {
         server: `http://localhost:${process.env.PORT || 3033}`,

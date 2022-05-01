@@ -21,7 +21,7 @@ export const addBookService = (title, image, text, callback, error) => {
             store.dispatch(addBook({
                 title: title,
                 text: text,
-                image: image,
+                image: response.image,
                 id: response.id
             }))
             

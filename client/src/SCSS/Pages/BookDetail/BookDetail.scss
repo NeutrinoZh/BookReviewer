@@ -16,16 +16,23 @@
         padding: 1%;
 
         img {
+            min-height: 24em;
+            max-height: 24em;
+            max-width: 17em;
             min-width: 17em;
             border: 3px solid $main-dark-color;
         }
 
-        h1 {
-            text-align: center;
-        }
+        div {
+            width: 100%;
 
-        p {
-            padding: 0% 5%;
+            h1 {
+                text-align: center;
+            }
+    
+            p {
+                padding: 0% 5%;
+            }
         }
     }
 

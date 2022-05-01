@@ -35,7 +35,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Static files 
-app.use(express.static(`${__dirname}/public`))
+console.log(`${__dirname}\\public`);
+app.use(express.static(`${__dirname}\\public`))
 
 // File upload middleware.
 app.use((req, res, next) => {

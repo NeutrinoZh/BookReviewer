@@ -4,7 +4,7 @@ const Routes = ({
     edit_profile: '/edit-profile/',
     about: '/about/',
     
-    detailBook: '/detail-book/',
+    detailBook: '/detail-book/:id',
     edit_book: '/edit-book/:book',
     add_new_book: '/add-new-book/',
 

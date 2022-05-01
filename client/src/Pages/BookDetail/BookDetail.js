@@ -2,31 +2,34 @@ import Input from '../../Components/Input/Input'
 import Comment from '../../Components/Comment/Comment';
 import { loc } from '../../Settings/localization';
 import Routes from '../../Routes/Routes';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+
+import store from "../../Redux/store"
+import { getElementByID } from '../../Redux/actionMaker.js'
+import { useEffect } from 'react';
 
 function BookDetail() {
+    const { id } = useParams()
+    const book = getElementByID(store.getState().books, id);
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        console.log("USE EFFECT")
+        if (!book) {
+            console.log("NAVIGATE")
+            navigate(Routes.home)
+        }           
+    }, [])
+
     return (
         <div className='book-detail'>
             <div className="book-detail-header">
-                <img src="../book.jpg"></img>
+                <img src={book.image}></img>
                 <div>
-                    <h1>Відьмак</h1>
+                    <h1>{book.title}</h1>
                     <p>
-                        Одна из лучших фэнтези-саг за всю историю существования жанра.
-                        Оригинальное, масштабное эпическое произведение, одновременно и свободное от
-                        влияния извне, и связанное с классической мифологической, легендарной и
-                        сказовой традицией. Шедевр не только писательского мастерства
-                        Анджея Сапковского, но и переводческого искусства Евгения Павловича 
-                        Вайсброта. Бесценный подарок и для поклонника прекрасной фантастики, и для ценителя
-                        просто хорошей литературы. Перед читателем буквально оживает необычный,
-                        прекрасный и жестокий мир литературной легенда, в котором обитают эльфы и гномы,
-                        оборотни, вампиры и «низушки»-хоббиты, драконы и монстры,
-                        - но прежде всего люди. Очень близкие нам, понятные и человечные люди
-                        - такие как мастер меча ведьмак Геральт, его друг, беспутный менестрель
-                        Лютик, его возлюбленная, прекрасная чародейка Йеннифэр, и приемная
-                        дочь - безрассудно отважная юная Цири... В нашей библиотеке вы можете
-                        бесплатно почитать книгу « Ведьмак ». Чтобы читать онлайн книгу « Ведьмак »
-                        перейдите по указанной ссылке. Приятного Вам чтения.
+                        {book.text}
                     </p>
                 </div>
             </div>
