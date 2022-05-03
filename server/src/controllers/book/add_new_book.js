@@ -8,8 +8,6 @@ const add_new_book = (req, res, next) => {
         title, text
     } = req.body
 
-    console.log('FILES:', req.files)
-
     if (!(title && text))
         return res.json({ error: 'add_new_book_invalid_data' })
 
@@ -32,6 +30,7 @@ const add_new_book = (req, res, next) => {
     book.save((err) => {
         if (err) return next(err)
         res.json({
+            user: req.user._id,
             image: path, 
             id: book._id
         })

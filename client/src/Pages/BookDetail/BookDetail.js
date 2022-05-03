@@ -15,9 +15,7 @@ function BookDetail() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        console.log("USE EFFECT")
         if (!book) {
-            console.log("NAVIGATE")
             navigate(Routes.home)
         }           
     }, [])
@@ -37,10 +35,12 @@ function BookDetail() {
             <p className='book-detail-num-favorite'>31 {loc._book_detail.num_favorite}</p>
 
             <div className="book-detail-buttons">
-                <button>{loc._book_detail.remove}</button>
-                <Link className='a-btn' to={Routes.edit_book.replace(':book', '0')}>
-                    <button>{loc._book_detail.edit}</button>
-                </Link>
+                { book.author == store.getState().user ? 
+                    <button>{loc._book_detail.remove}</button> &&     
+                    <Link className='a-btn' to={Routes.edit_book.replace(':book', '0')}>
+                        <button>{loc._book_detail.edit}</button>
+                    </Link>
+                : "" }
                 <button>{loc._book_detail.favorite}</button>
             </div>
 

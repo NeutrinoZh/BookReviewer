@@ -4,7 +4,7 @@ export const book = (state={}, action) => {
     switch (action.type) {
         case actions.ADD_BOOK:
             return {
-                id: action.id,
+                _id: action._id,
                 title: action.title,
                 text: action.text,
                 image: action.image,
@@ -36,6 +36,8 @@ export const books = (state=[], action) => {
             return state.filter(
                 item => item.id !== action.id
             )
+        case actions.LOAD_BOOKS:
+            return action.books
         default:
             return state
     }

@@ -14,7 +14,8 @@ const config = {
         change_avatar: '/change-avatar/',
         get_user: '/get-user/',
 
-        add_book: '/add-book/'
+        add_book: '/add-book/',
+        load_books: '/load-books/'
     },
     salt: 'c01d192d',
     maxAgeToken: 360000, // One hour

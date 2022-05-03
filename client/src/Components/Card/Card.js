@@ -9,7 +9,7 @@ const Card = ({ title, text, image, id }) => (
             <p>
                 {text} 
             </p>
-            <Link to={`${Routes.detailBook}${id}`}>
+            <Link to={`${Routes.detailBook.replace(":id", id)}`}>
                 <button>Подробнее</button>
             </Link>
         </div>

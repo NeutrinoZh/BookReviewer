@@ -22,10 +22,20 @@ export const addBookService = (title, image, text, callback, error) => {
                 title: title,
                 text: text,
                 image: response.image,
-                id: response.id
+                author: response.user,
+                _id: response.id
             }))
             
             callback()
         }
+    }))
+}
+
+export const loadBooksService = (callback) => {
+    isAuth(api.post(config.api.load_books, {}).then(response => {
+        callback(response)
+    }).catch(error => {
+        const msg = "LoadBooksService Error:" + error
+        console.log(msg)
     }))
 }
