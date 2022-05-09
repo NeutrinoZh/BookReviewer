@@ -19,7 +19,7 @@ const get_user = (req, res, next) => {
             num_books: found_user.num_books,
             num_following: found_user.num_following,
             num_comments: found_user.num_comments,
-            num_favorite: found_user.num_favorite,
+            num_favorite: found_user.favorites.length,
             token: found_user.token,
             avatar: found_user.avatar,
             id: found_user._id

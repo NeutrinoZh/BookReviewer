@@ -10,7 +10,8 @@ const UserSchema = new mongoose.Schema({
     num_books: { type: Number, required: true },
     num_following: { type: Number, required: true },
     num_comments: [ String ],
-    num_favorite: { type: Number, required: true },
+
+    favorites: [ String ],
     token: { type: String, min: 10, max: 100 }
 })
 

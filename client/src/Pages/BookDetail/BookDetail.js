@@ -2,23 +2,28 @@ import Input from '../../Components/Input/Input'
 import Comment from '../../Components/Comment/Comment';
 import { loc } from '../../Settings/localization';
 import Routes from '../../Routes/Routes';
-import { Link, useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import store from "../../Redux/store"
 import { getElementByID } from '../../Redux/actionMaker.js'
-import { useEffect } from 'react';
+import { deleteBookServie, likeBookService } from '../../Services/book';
 
 function BookDetail() {
     const { id } = useParams()
     const book = getElementByID(store.getState().books, id);
     const navigate = useNavigate()
 
-    useEffect(() => {
-        if (!book) {
+    function deleteBook() {
+        deleteBookServie(id, () => {
             navigate(Routes.home)
-        }           
-    }, [])
+        })
+    }
+
+    function likeBook() {
+        likeBookService(id, () => {
+            console.log("LIKE SUCCESS")
+        })        
+    }
 
     return (
         <div className='book-detail'>
@@ -38,13 +43,13 @@ function BookDetail() {
             <div className="book-detail-buttons">
                 { book.user == store.getState().user.name ? 
                     <>
-                        <button>{loc._book_detail.remove}</button>    
+                        <button onClick={deleteBook}>{loc._book_detail.remove}</button>    
                         <Link className='a-btn' to={Routes.edit_book.replace(':book', '0')}>
                             <button>{loc._book_detail.edit}</button>
                         </Link>
                     </>
                 : "" }
-                <button>{loc._book_detail.favorite}</button>
+                <button onClick={likeBook}>{loc._book_detail.favorite}</button>
             </div>
 
             <div className="book-detail-input">

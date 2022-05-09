@@ -15,7 +15,9 @@ const config = {
         get_user: '/get-user/',
 
         add_book: '/add-book/',
-        load_books: '/load-books/'
+        like_book: '/like-book/',
+        load_books: '/load-books/',
+        delete_book: '/delete-book/'
     },
     salt: 'c01d192d',
     maxAgeToken: 360000, // One hour

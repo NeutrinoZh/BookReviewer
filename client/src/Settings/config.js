@@ -7,7 +7,9 @@ const config = {
         new_password: 'auth/new-password/:id',
 
         add_book: 'add-book/',
-        load_books: 'load-books/'
+        load_books: 'load-books/',
+        like_book: 'like-book/:id',
+        delete_book: 'delete-book/:id'
     },
 }
 

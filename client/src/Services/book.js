@@ -31,6 +31,25 @@ export const addBookService = (title, image, text, callback, error) => {
     }))
 }
 
+export const deleteBookServie = (id, callback) => {
+    isAuth(api.post(config.api.delete_book.replace(':id', id), {})
+      .then(callback)
+      .catch(error => {
+        const msg = "DeleteBookService Error:" + error
+        console.log(msg)
+      }
+    ))
+}
+
+export const likeBookService = (id, callback) => {
+    isAuth(api.post(config.api.like_book.replace(':id', id), {}).then(response => {
+        callback(response)
+    }).catch(error => {
+        const msg = "LikeBookService Error:" + error
+        console.log(msg)
+    }))
+}
+
 export const loadBooksService = (callback) => {
     isAuth(api.post(config.api.load_books, {}).then(response => {
         callback(response)
